@@ -2,12 +2,12 @@
 
 Console.WriteLine("Hello!");
 
-static double CalculateAverage(int[] arr)
+static double CalculateAverage(int[] integers)
 {
-    return arr.Average();
+    return integers.Average();
 }
 
-static int GetMaxValue(int[] array)
+static int GetMaxValue(int[] integers)
 {
-    return array.Max();
+    return integers.Max();
 }
