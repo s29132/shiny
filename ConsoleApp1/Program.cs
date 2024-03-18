@@ -6,3 +6,8 @@ static double CalculateAverage(int[] arr)
 {
     return arr.Average();
 }
+
+static int GetMaxValue(int[] arr)
+{
+    return arr.Max();
+}
