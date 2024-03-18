@@ -7,7 +7,7 @@ static double CalculateAverage(int[] integers)
     return integers.Average();
 }
 
-static int GetMaxValue(int[] arr)
+static int GetMaxValue(int[] integers)
 {
-    return arr.Max();
+    return integers.Max();
 }
