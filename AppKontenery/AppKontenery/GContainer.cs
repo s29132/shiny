@@ -7,6 +7,8 @@ public class GContainer : Container, IHazardNotifier
         depth)
     {
         this.pressure = pressure;
+        this.type = 'G';
+        SetSerialNumber();
     }
     public override void EmptyLoad()
     {
@@ -20,6 +22,7 @@ public class GContainer : Container, IHazardNotifier
 
     public new void LoadContainer(double mass)
     {
+        mass = mass / 1000;
         try
         {
             base.LoadContainer(mass);

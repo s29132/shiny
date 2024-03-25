@@ -7,6 +7,8 @@ public class LContainer : Container, IHazardNotifier
     public LContainer(double ownMass, double capacity, double height, double depth, bool safe) : base(ownMass, capacity, height, depth)
     {
         this._safe = safe;
+        this.type = 'L';
+        SetSerialNumber();
     }
 
     public bool Safe
@@ -40,6 +42,7 @@ public class LContainer : Container, IHazardNotifier
 
     public new void LoadContainer(double mass)
     {
+        mass = mass / 1000;
         if (_safe)
         {
             if ((LoadMass + mass) <= capacity*0.9)

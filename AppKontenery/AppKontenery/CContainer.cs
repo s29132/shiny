@@ -2,13 +2,15 @@ namespace AppKontenery;
 
 public class CContainer : Container
 {
-    private double? _temp;
+    private double? temp;
     private Product productType;
     public CContainer(double ownMass, double capacity, double height, double depth, Product productType) : base(ownMass, capacity, height,
         depth)
     {
         this.productType = productType;
-        this._temp = null;
+        this.temp = null;
+        this.type = 'C';
+        SetSerialNumber();
     }
 
     public override void EmptyLoad()
@@ -18,14 +20,15 @@ public class CContainer : Container
 
     public new void LoadContainer(double mass, Product product)
     {
-        if (_temp == null)
+        mass = mass / 1000;
+        if (temp == null)
         {
             Console.WriteLine("To load container you need to set temperature first!");
             return;
         }
         if (product.GetType() == productType.GetType())
         {
-            if (product.RequiredTemp <= this._temp)
+            if (product.RequiredTemp <= this.temp)
             {
                 base.LoadContainer(mass);
             }
@@ -38,12 +41,12 @@ public class CContainer : Container
 
     public double? Temp
     {
-        get => _temp;
+        get => temp;
         set
         {
             if (productType.RequiredTemp <= value)
             {
-                this._temp = value;
+                this.temp = value;
             }
             else
             {
